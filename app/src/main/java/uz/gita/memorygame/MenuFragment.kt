@@ -32,13 +32,13 @@ class MenuFragment : Fragment() {
     ): View? {
         _binding= FragmentMenuBinding.inflate(inflater,container,false)
         binding.mid.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.main,LevelsFragment.newInstance(Levels.MIDDLE.level))
+            parentFragmentManager.beginTransaction().replace(R.id.main,LevelsFragment.newInstance(Levels.MIDDLE.level)).commit()
         }
         binding.easy.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.main,LevelsFragment.newInstance(Levels.EASY.level))
+            parentFragmentManager.beginTransaction().replace(R.id.main,LevelsFragment.newInstance(Levels.EASY.level)).commit()
         }
         binding.hard.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.main,LevelsFragment.newInstance(Levels.HARD.level))
+            parentFragmentManager.beginTransaction().replace(R.id.main,LevelsFragment.newInstance(Levels.HARD.level)).commit()
         }
         return binding.root
     }

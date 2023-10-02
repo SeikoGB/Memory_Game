@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import uz.gita.memorygame.databinding.FragmentLevelsBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -29,8 +31,15 @@ class LevelsFragment : Fragment() {
     }
     fun loadUI(level: Int){
         binding.mainLinear.weightSum=level.toFloat()
-        for (i in 0..level){
-            var innerLayout = binding.mainLinear.getChildAt(i)
+        for (i in 0..level-1){
+            var innerLayout = binding.mainLinear.getChildAt(i) as LinearLayout
+            for (i in 0..innerLayout.childCount-1){
+            var image:ImageView= ImageView(requireContext()).apply {
+                layoutParams=LinearLayout.LayoutParams(0,innerLayout.layoutParams.height,1f)
+                setImageResource(R.drawable.unknown)
+            }
+            innerLayout.addView(image)
+            }
 
         }
 
